@@ -21,31 +21,34 @@ public class ClinicalAnalysis extends ClinicalRecords {
         // TODO code application logic here
         ClinicalAnalysis patient = new ClinicalAnalysis();
         ConvertRecords patient1 = new ConvertRecords();
-        
-        double[][] patientRecords = new double[2][10];
+        AnalysingData patient2 = new AnalysingData();
+        double[][] patientRecords = new double[10][2];
         
         for(int i=0;i<10;i++){
-            patientRecords[0][i]= patient1.getHeamoglobinLevel();
-            patientRecords[1][i]= patient1.getESRLevel();
+            patientRecords[i][0]= patient1.getHeamoglobinLevel();
+            patientRecords[i][1]= patient1.getESRLevel();
         }
         
         //displaying the values 
        System.out.println("Here are the list of patients numbers, thier blood heamoglobin levels and ESR level");
         System.out.format("%s \t %s \t %s %n","Patient Id", "Heamoglobin range","ESR Range");
         for(int i=0 ;i<10;i++){
-            System.out.format("%4d \t\t %.2f \t\t\t %.2f %n",i+1,patientRecords[0][i],patientRecords[1][i]);
+            System.out.format("%4d \t\t %.2f \t\t\t %.2f %n",i+1,patientRecords[i][1],patientRecords[i][1]);
         } 
         
          for(int i=0;i<10;i++){
-            patientRecords[0][i]= patient1.convertHeamoglobinValue(patientRecords[0][i]);
-            patientRecords[1][i]= patient1.convertESRValue(patientRecords[1][i]);
+            patientRecords[i][0]= patient1.convertHeamoglobinValue(patientRecords[i][0]);
+            patientRecords[i][1]= patient1.convertESRValue(patientRecords[i][1]);
         }
        
         System.out.println(""); 
         System.out.format("%s \t %s \t %s %n","Patient Id", "Heamoglobin range","ESR Range");
         for(int i=0 ;i<10;i++){
-            System.out.format("%4d \t\t %.2f \t\t\t %.2f %n",i+1,patientRecords[0][i],patientRecords[1][i]);
+            System.out.format("%4d \t\t %.2f \t\t\t %.2f %n",i+1,patientRecords[i][0],patientRecords[i][1]);
         }
+        
+        patient2.sorting(patientRecords);
+       
     }
         
        
