@@ -29,7 +29,7 @@ public class ClinicalRecords {
  public double getESRLevel(){
       Random r = new Random();  
             // creates a data for 10 patients heamoglobin levels
-            esr= 7+(r.nextDouble()*(18 - 7));
+            esr= 7+(r.nextDouble()*(40 - 7));
             //rouding of the last to digits
             esr=Math.round(esr*100.0)/100.0;
                 
